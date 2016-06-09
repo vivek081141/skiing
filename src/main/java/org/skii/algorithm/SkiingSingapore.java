@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -37,7 +36,7 @@ public class SkiingSingapore {
 		/** printing the result */
 		if(output!=null){
 			for(int i=output.size()-1;i>=0;i--)
-					System.out.print(output.get(i)+"-");
+					System.out.print(output.get(i)+" ");
 		}
 		
 	}
@@ -84,24 +83,20 @@ public class SkiingSingapore {
 		//sorting the list of results in descending order
 		Collections.sort(superList, new Comparator<List<Integer>>() {
 		  public int compare(List<Integer> o1, List<Integer> o2)  {
+			  if(!o1.isEmpty() && !o2.isEmpty()){
+					 if(o2.size()-o1.size()==0){
+						 int drop1=o1.get(o1.size()-1)-o1.get(0);
+						 int drop2=o2.get(o2.size()-1)-o2.get(0);
+						 return drop2-drop1;
+					  } 
+				 }
+			  
 		    return o2.size()-o1.size();
 		  }
 		});
 		
-		int maxSize=superList.get(0).size(); //the maximum length
-		int maxDiff=0;
-		List<Integer>  output = null;
-		for(int z=0;z<superList.size();z++){
-			List<Integer>  tempList=superList.get(z);
-			if(superList.get(z).size()==maxSize){
-				int diff=tempList.get(maxSize-1)-tempList.get(0);
-				if(diff>maxDiff){
-					maxDiff=diff;
-					output=tempList;
-				}
-			} 
-		}
-		return output;
+		 
+		return superList.get(0);
 	}
 
 
@@ -155,22 +150,28 @@ public class SkiingSingapore {
 				listX.add(x);
 				return listX;
 			}
-			Integer[] list={listA.size(),listB.size(),listC.size(),listD.size()};
-		    Arrays.sort(list);
-		    
-		    if(list[3]==listA.size()){
-		    	listA.add(x);
-		    	return listA;
-		    }
-		    if(list[3]==listB.size()){
-		    	listB.add(x);
-		    	return listB;
-		    }
-		    if(list[3]==listC.size()){
-		    	listC.add(x);
-		    	return listC;
-		    }
-		    listD.add(x);    
-		return listD;
+			
+			List<List<Integer>> tempList=new ArrayList<List<Integer>>();
+			tempList.add(listA);
+			tempList.add(listB);
+			tempList.add(listC);
+			tempList.add(listD);
+
+			Collections.sort(tempList, new Comparator<List<Integer>>() {
+				  public int compare(List<Integer> o1, List<Integer> o2)  {
+					 if(!o1.isEmpty() && !o2.isEmpty()){
+						 if(o2.size()-o1.size()==0){
+							  return o1.get(0)-o2.get(0);
+						  } 
+					 }
+					 
+				    return o2.size()-o1.size();
+				  }
+				});
+			
+			tempList.get(0).add(x);	
+			
+		       
+		return tempList.get(0);
 	}
 }
