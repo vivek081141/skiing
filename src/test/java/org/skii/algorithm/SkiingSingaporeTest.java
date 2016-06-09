@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class SkiingSingaporeTest {
 	 
-	@Test
+	@Test()
 	public void testA(){
 		Integer[][] input={ {2,3},{3,4}};
 		List<Integer> output=SkiingSingapore.skiingAlgorithm(2, 2, input);
@@ -17,7 +17,7 @@ public class SkiingSingaporeTest {
 		Assert.assertEquals(4, output.get(2).intValue());
 	}
 	
-	@Test
+	@Test()
 	public void testB(){
 		Integer[][] input={ {4, 8, 7, 3 },{2, 5, 9, 3},{6, 3, 2, 5},{4, 4, 1, 6}};
 		List<Integer> output=SkiingSingapore.skiingAlgorithm(4, 4, input);

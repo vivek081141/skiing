@@ -23,7 +23,6 @@ import java.util.List;
  */
 public class SkiingSingapore {
 	private static Integer[][] input=null;
-	private static Integer length=null;
 	
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -38,13 +37,32 @@ public class SkiingSingapore {
 		/** printing the result */
 		if(output!=null){
 			for(int i=output.size()-1;i>=0;i--)
-					System.out.print(output.get(i)+" ");
+					System.out.print(output.get(i)+"-");
 		}
 		
 	}
 
 
-
+	/**
+	 * Gets the input.
+	 * This method is to get the input from the user
+	 * @param br the br
+	 * @param a the a
+	 * @param b the b
+	 * @return the input
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
+	private static void getInput(BufferedReader br, int a, int b) throws IOException {
+		input=new Integer[a][b];
+		for(int i=0;i<a;i++){
+			String[] line=br.readLine().split(" ");
+			for(int j=0;j<line.length;j++){
+				input[i][j]=Integer.parseInt(line[j]);
+			}
+		}
+	}
+	
+	
 	/**
 	 * Skiing algorithm.
 	 *  It takes the input and gives the result in List<Integer>
@@ -52,7 +70,8 @@ public class SkiingSingapore {
 	 * @param b the b
 	 * @return the list
 	 */
-	public static List<Integer> skiingAlgorithm(int a, int b,Integer[][] input) {
+	public static List<Integer> skiingAlgorithm(int a, int b,Integer[][] inputArray) {
+		input=inputArray;
 		List<Integer> list=new ArrayList<Integer>();
 		List<List<Integer>> superList=new ArrayList<List<Integer>>();
 		for(int i=0;i<a;i++){
@@ -81,33 +100,12 @@ public class SkiingSingapore {
 					output=tempList;
 				}
 			} 
-			
 		}
 		return output;
 	}
 
 
 
-	/**
-	 * Gets the input.
-	 * This method is to get the input from the user
-	 * @param br the br
-	 * @param a the a
-	 * @param b the b
-	 * @return the input
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	private static void getInput(BufferedReader br, int a, int b) throws IOException {
-		input=new Integer[a][b];
-		for(int i=0;i<a;i++){
-			String[] line=br.readLine().split(" ");
-			for(int j=0;j<line.length;j++){
-				input[i][j]=Integer.parseInt(line[j]);
-			}
-		}
-		length=input.length;
-	}
-	
 	
 	/**
 	 * A recursive function which will find the list of all possible routes from a point
@@ -129,10 +127,10 @@ public class SkiingSingapore {
 			if((j-1>=0) && x>input[i][j-1]){
 				listB=recursion(input[i][j-1],i,j-1);
 			}
-			if((i+1<length) && x>input[i+1][j]){
+			if((i+1<input.length) && x>input[i+1][j]){
 				listC=recursion(input[i+1][j],i+1,j);
 			}
-			if((j+1<length) && x>input[i][j+1]){
+			if((j+1<input.length) && x>input[i][j+1]){
 				listD=recursion(input[i][j+1],i,j+1);
 			}
 			
