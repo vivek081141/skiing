@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class SkiingSingaporeMnemonics {
 	private static Integer[][] input=null;
-	private static Map<String,List<Integer>> mnemonicsMap=new HashMap<String,List<Integer>>();
+	private static Map<String,List<Integer>> mnemonicsMap=null;
 	
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -62,6 +62,7 @@ public class SkiingSingaporeMnemonics {
 	 */
 	public static List<Integer> skiingAlgorithm(int a, int b,Integer[][] inputArray) {
 		input=inputArray;
+		mnemonicsMap=new HashMap<String,List<Integer>>();
 		List<Integer> list=new ArrayList<Integer>();
 		List<List<Integer>> superList=new ArrayList<List<Integer>>();
 		for(int i=0;i<a;i++){
@@ -104,9 +105,8 @@ public class SkiingSingaporeMnemonics {
 			
 		//if the longest path is already there then no need to go through recursive cycles
 			if(mnemonicsMap.get(i+""+j)!=null){
-				return mnemonicsMap.get(i+""+j);
+				return new ArrayList<Integer>(mnemonicsMap.get(i+""+j));
 			}
-		
 			List<Integer> listA=new ArrayList<Integer>();
 			List<Integer> listB=new ArrayList<Integer>();
 			List<Integer> listC=new ArrayList<Integer>();
