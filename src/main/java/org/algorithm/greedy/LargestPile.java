@@ -1,10 +1,10 @@
 package org.algorithm.greedy;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -39,8 +39,28 @@ public class LargestPile {
 		}
 		/** sorting the list according to index **/
 		Collections.sort(pileList);
+		int maxHeight=0;
+		for(int i=0;i<pileList.size();i++){ 
+			int tempMaxHeight=0;
+			int tempMaxGold=0;
+			for (int j = i; j < pileList.size(); j++) {
+				
+				if(i==j){
+					tempMaxHeight=pileList.get(i).getHeight();
+					tempMaxGold=pileList.get(i).getWeight();
+				}else{
+					if(pileList.get(j).getIndex()>pileList.get(j-1).getIndex()){
+						tempMaxHeight=tempMaxHeight+pileList.get(i).getHeight();
+						tempMaxGold=tempMaxGold+pileList.get(i).getWeight();
+					}
+				}
+				
+			}
+			
+			
+		}
 		
-		
+		System.out.println(maxHeight);
 		
 	}
 	
@@ -69,9 +89,34 @@ public class LargestPile {
 		}
 		@Override
 		public int compareTo(Pile o) {
-			return this.index-o.getIndex();
+			return o.getHeight()-this.height;
 		}
 		
+	}
+	
+	class WeightSorter  implements Comparator<Pile>{
+
+		@Override
+		public int compare(Pile o1, Pile o2) {
+			return o2.getWeight()-o1.getWeight();
+		}
+		
+	}
+	
+	
+	public static Pile greatestPile(List<Pile> resultList){
+		LargestPile x=new LargestPile();
+		Collections.sort(resultList,x.new WeightSorter());
+		return resultList.get(0);
+		
+	}
+	
+	public static Pile recursion(int index,List<Pile> pileList){
+		List<Pile> resultList=new ArrayList<Pile>();
+		
+		
+		
+		return greatestPile(resultList);
 	}
 
 }
