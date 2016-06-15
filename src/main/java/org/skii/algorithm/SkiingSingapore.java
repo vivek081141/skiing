@@ -22,7 +22,6 @@ import java.util.List;
  */
 public class SkiingSingapore {
 	private static Integer[][] input=null;
-	
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String[] line=br.readLine().split(" ");
@@ -38,6 +37,7 @@ public class SkiingSingapore {
 			for(int i=output.size()-1;i>=0;i--)
 					System.out.print(output.get(i)+" ");
 		}
+		
 		
 	}
 
