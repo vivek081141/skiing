@@ -11,6 +11,15 @@ import javax.xml.xpath.XPathExpressionException;
 
 import org.xml.sax.SAXException;
 
+/**
+ * SureFireProcessor: This class is the entry point for processing the java test cases
+ * It accepts two input parameters
+ * a) The Folder location
+ * b) The module name
+ * 
+ * @author vivek.agrawal
+ *
+ */
 public class SureFireProcessor {
 	private DBHandler dbHandler=new DBHandler();
 	

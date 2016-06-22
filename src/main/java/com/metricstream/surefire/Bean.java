@@ -3,7 +3,7 @@ package com.metricstream.surefire;
 import java.util.Date;
 
 /**
- * The Class Bean.
+ * The Class Bean : A model to store the result 
  * @author vivek.agrawal
  */
 public class Bean {

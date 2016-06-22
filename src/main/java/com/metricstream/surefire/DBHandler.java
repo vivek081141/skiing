@@ -6,6 +6,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/**
+ * DBHandler: This will create the connection
+ * and insert the test case result for the module 
+ * @author vivek.agrawal
+ *
+ */
 public class DBHandler {
 	private final String URL = "jdbc:oracle:thin:@172.27.140.5:32786:orcl11g";
 	private final String USER = "METRICSTREAM";
