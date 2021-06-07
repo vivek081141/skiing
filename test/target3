@@ -1,0 +1,117 @@
+TODO
+
+1. Automated Languauge Story
+2. Prod Defect - OO Menu - light account 
+3. Prod Defect - 
+NS-15263 - 
+3. Kiran - Account Consolidation Duns Check  - Ash - IN Progress
+4. VUF - Put a check and label - DONE
+5. Account Reference - add hint - Ash - IN Progress
+6. Olaf's estimation and L2 checking - Vinit
+7. Going through Search API pending items
+
+
+
+
+
+AccountConsolidation
+AccountCreationwithTRR
+
+
+
+search adoption metrics
+request id are coming as null?
+
+Logs are not good for 
+/matchingService
+/exactEmail - solr
+/HiddenSuppliers
+
+request id null -
+
+(Misc:info): SupplierMatchingServiceImpl:Request Id: e0a39c79-7721-41a9-bd07-ec856c1ee878 Search response time: 2059 milliseconds
+
+		
+	    	UPDATE org_translation_status SET status = 'NEED_TRANSLATION' WHERE org=:orgId AND status <> 'NEED_TRANSLATION';
+
+
+
+
+1. Prod Defects
+2. API Documentation & Swagger - 	
+6. High response time for condolidation 
+
+VUF
+SUPPLIER ANID = "";
+
+VENDOR_MASTER - ANSUPPLIER - PUBLIC_ANID
+
+
+- lbn - 
+
+1. website
+
+4. Cancel Ticket
+5. Motu Call karna
+
+
+
+GA - splits
+
+
+Prod Defects
+1. NS-14062: Reference files
+2. NS-14836: DF in deprecating status
+
+
+
+Perf - Vivek
+OO Menu - NP-28913 - low priority
+https://github.wdf.sap.corp/Ariba-Ond/AN/pull/33326 (Seetesh PR) - Medium Priorty
+Reference Link - Vivek
+https://product-jira.ariba.com/browse/SA-22984 (AJay) - High Priority
+SE DEFECTS
+
+
+	UI - DISCOVERY - AN
+
+
+AnyofTheseWords: "Vivek + Aerospace"
+"Territory": "USA"
+
+
+anyofTheseWOrds: Vivek +OR+ Aerospace
+				commodity: 1234+344+34234
+				industry:Aerospace
+Territory: USA
+AccountType: Enterprise	 
+
+
+SearchParam
+searchParamlIst = List<SearchParam> 
+freeTextParamList = LIst<SearchParam> = freeText=true
+
+(Vivek +OR+ Aerospace) +AND+ (
+	(commodity: 1234+344+34234)+AND+INDUSTRY:Aerospace
+)+AND+Territory: USA +AND+AccountType: Enterprise	 
+
+
+
+
+curl -X GET 'https://secure.tutorcruncher.com/api/clients/' -H 'authorization: token 6300ee171d2d77217bd0' 
+
+
+curl -X GET 'https://secure.tutorcruncher.com/6300ee171d2d77217bd0/contractors?pagination=100&sort=name&page=1' -H 'authorization: token 6300ee171d2d77217bd0' 
+
+6300ee171d2d77217bd0
+
+
+<div id="socket"></div>
+
+<!-- If you haven't called it before -->
+<script src="https://cdn.tutorcruncher.com/socket/latest/socket.js"></script>
+
+<!-- Then -->
+<script>
+  socket('6300ee171d2d77217bd0');
+</script>
